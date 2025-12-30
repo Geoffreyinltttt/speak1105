@@ -1385,12 +1385,13 @@ if (app.mode === 'challenge') {
     }
         
     getWords(text) {
-        return text
-            .toLowerCase()
-            .replace(/[.,?!;:]/g, '')
-            .split(/\s+/)
-            .filter(Boolean);
-    }
+    return text
+        .toLowerCase()
+        .replace(/\.{2,}/g, ' ')      // 將連續的點（...）轉換為空格
+        .replace(/[.,?!;:'"]/g, '')   // 移除其他標點符號
+        .split(/\s+/)
+        .filter(Boolean);
+}
 
     // 即時更新單字顏色
     updateWordColors() {
@@ -2223,6 +2224,7 @@ window.selectChallengeType = selectChallengeType;
 window.retryCurrentChallenge = retryCurrentChallenge;
 window.startNewChallenge = startNewChallenge;
 window.showChallengeResults = showChallengeResults;
+
 
 
 
