@@ -1385,12 +1385,14 @@ if (app.mode === 'challenge') {
     }
         
     getWords(text) {
-    return text
+    const result = text
         .toLowerCase()
         .replace(/\.{2,}/g, ' ')      // 將連續的點（...）轉換為空格
         .replace(/[.,?!;:'"]/g, '')   // 移除其他標點符號
         .split(/\s+/)
         .filter(Boolean);
+    console.log('getWords 輸入:', text, '→ 輸出:', result);
+    return result;
 }
 
     // 即時更新單字顏色
@@ -2224,6 +2226,7 @@ window.selectChallengeType = selectChallengeType;
 window.retryCurrentChallenge = retryCurrentChallenge;
 window.startNewChallenge = startNewChallenge;
 window.showChallengeResults = showChallengeResults;
+
 
 
 
