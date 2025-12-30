@@ -1387,7 +1387,8 @@ if (app.mode === 'challenge') {
     getWords(text) {
     const result = text
         .toLowerCase()
-        .replace(/\.{2,}/g, ' ')      // 將連續的點（...）轉換為空格
+        .replace(/…/g, ' ')           // 處理水平省略號（單一字元 …）
+        .replace(/\.{2,}/g, ' ')      // 處理連續的點（...）
         .replace(/[.,?!;:'"]/g, '')   // 移除其他標點符號
         .split(/\s+/)
         .filter(Boolean);
@@ -2226,6 +2227,7 @@ window.selectChallengeType = selectChallengeType;
 window.retryCurrentChallenge = retryCurrentChallenge;
 window.startNewChallenge = startNewChallenge;
 window.showChallengeResults = showChallengeResults;
+
 
 
 
